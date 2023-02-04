@@ -1,18 +1,12 @@
-import { useState } from "react"
+import Task from "./Task"
 
-const Tasks = () => {
-    const [ tasks, setTasks ] = useState([
-        {
-            id: 1,
-            text: 'Write your first task above',
-            date: '05.02.2023',
-            isComplite: true
-        }
-    ])
+const Tasks = ({tasks, onDelete}) => {
   return (
-    <>
-      {tasks.map((task) =>(<h3 key={task.id}>{task.text}</h3>))}
-    </>
+    <div className="tasks">
+      {tasks.map((task) =>(
+        <Task key={task.id} task={task} onDelete={() => onDelete(task.id )} />
+      ))}
+    </div>
   )
 }
 
